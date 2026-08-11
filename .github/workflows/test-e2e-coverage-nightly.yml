@@ -387,3 +387,6 @@ jobs:
     secrets: inherit
     with:
       pull-request-number: ${{ needs.commit-impact-map.outputs.pull-request-number }}
+jobs:
+  review:
+    if: ${{ github.event.repository.fork == false || github.event_name != 'schedule' }}
